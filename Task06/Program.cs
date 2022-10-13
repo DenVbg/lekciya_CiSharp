@@ -12,6 +12,6 @@ int number = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine($"Является ли число {number} четным? ");    
 int result  = number%2;
 if (result == 0) {
-    Console.Write("ДА, является.");
+    Console.Write("Является.");
 }
-else Console.Write("Нет, не является.");    
+else Console.Write("Не является.");    

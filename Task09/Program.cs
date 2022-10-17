@@ -7,7 +7,17 @@
 
 int number = new Random().Next(10,100);
 Console.WriteLine($"Случайное число от 10 до 99: {number}");
-int num1 = number / 10;
-int num2 = number % 10;
-if (num1>num2) Console.WriteLine($"наибольшая цифра числа {num1}, min = {num2} "); 
-else Console.WriteLine($"наибольшая цифра числа {num2}, min = {num1} ");  
+int firstDigit = number / 10;
+int secondDigit = number % 10;
+// 1.Вариант (условный оператор)
+// if (firstDigit>secondDigit) Console.WriteLine($"наибольшая 1 цифра числа {firstDigit}"); 
+// else if(firstDigit==secondDigit) Console.WriteLine($"1 цифра числа и 2 цифра числа равны {secondDigit}");  
+// else Console.WriteLine($"наибольшая 2 цифра числа {secondDigit}");  
+
+// 2.Варианти (тернарный оператор)
+// int maxDigit = firstDigit>secondDigit ? firstDigit : secondDigit;
+// Console.WriteLine($"наибольшая цифра числа {maxDigit} ");  
+
+// 3.Вариант
+Console.Write($"наибольшая цифра числа: ");  
+Console.WriteLine(firstDigit>secondDigit ? firstDigit: secondDigit);

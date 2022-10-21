@@ -26,5 +26,3 @@ double GetDist(int xc1, int xc2, int yc1, int yc2)
 
 double res = GetDist(x1, x2, y1, y2);
 Console.WriteLine($"A ({x1},{y1}), B({x2},{y2}) -> {res}");
-
-Math.Abs();

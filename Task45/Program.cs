@@ -25,15 +25,15 @@ void PrintArray(int[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if(i < array.Length - 1) Console.Write($"{array[i]},");
+        if (i < array.Length - 1) Console.Write($"{array[i]},");
         else Console.Write($"{array[i]}");
     }
     Console.WriteLine("]");
 }
 
 int[] CopyArray(int[] array)
-{    
-    int[] copyArray =new int[array.Length];
+{
+    int[] copyArray = new int[array.Length];
     for (int i = 0; i < array.Length; i++)
     {
         copyArray[i] = array[i];

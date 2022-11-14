@@ -8,14 +8,14 @@
 Console.WriteLine("Введите число: ");
 int size = Convert.ToInt32(Console.ReadLine());
 
-int[] Fibonachchi (int size)
+int[] Fibonachchi(int size)
 {
     int[] array = new int[size];
-    array[0]=0;
-    array[1]=1;
+    array[0] = 0;
+    array[1] = 1;
     for (int i = 2; i < array.Length; i++)
     {
-        array[i]=array[i-2]+array[i-1];
+        array[i] = array[i - 2] + array[i - 1];
     }
     return array;
 }
@@ -25,7 +25,7 @@ void PrintArray(int[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if(i<array.Length-1)Console.Write($"{array[i]},");
+        if (i < array.Length - 1) Console.Write($"{array[i]},");
         else Console.Write($"{array[i]}");
     }
     Console.WriteLine("]");

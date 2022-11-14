@@ -5,7 +5,7 @@
 // [-4, -6, 89, 6] -> 0
 
 Console.WriteLine("Найти сумму элементов, стоящих на нечётных позициях в массиве.");
-Console.Write0("Введите количество элементов массива : ");
+Console.Write("Введите количество элементов массива : ");
 int size = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите минимальный элемент массива : ");
 int min = Convert.ToInt32(Console.ReadLine());

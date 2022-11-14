@@ -4,23 +4,27 @@
 
 // [345, 897, 568, 234] -> 2
 
-Console.WriteLine("Программа, покажет количество чётных чисел в массиве.");
-Console.WriteLine("Введите количество элементов массива : ");
+Console.WriteLine("Программа, задаст массив заполненный случайными положительными трёхзначными числам и покажет количество чётных чисел в массиве.");
+Console.Write("Введите количество элементов массива : ");
 int size = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите минимальный и максимальный элемент массива. ");
-Console.WriteLine("Минимальное трехзначное положительный число : ");
+Console.Write("Минимальное трехзначное положительный число : ");
 int min = Convert.ToInt32(Console.ReadLine());
-while(min<100 && min<1000){
-    Console.WriteLine("Вы ввели не трехзначное положительное число. Повторите ввод : ");
+while (min < 100 && min < 1000)
+{
+    Console.WriteLine("!Вы ввели не трехзначное положительное число.");
+    Console.Write("Минимальное трехзначное положительный число : ");
     min = Convert.ToInt32(Console.ReadLine());
-    if (min>99 && min<1000) break;  
+    if (min >= 100 && min <= 999) break;
 }
-Console.WriteLine("Максимальное трехзначное положительное число : ");
+Console.Write("Максимальное трехзначное положительное число : ");
 int max = Convert.ToInt32(Console.ReadLine());
-while(max<100 && max<1000){
-    Console.WriteLine("Вы ввели не трехзначное положительное число. Повторите ввод : ");
+while (max < 100 && max < 1000 || min == max)
+{
+    Console.WriteLine("!Вы ввели не трехзначное положительное число или минимальное равно максимальному.");
+    Console.Write("Максимальное трехзначное положительное число : ");
     max = Convert.ToInt32(Console.ReadLine());
-    if (max>99 && max<1000) break;  
+    if (max >= 100 && max <= 999 && min != max) break;
 }
 
 int[] CreateArrayRndInt(int size, int min, int max)
@@ -39,7 +43,7 @@ void PrintArray(int[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if(i < array.Length - 1) Console.Write($"{array[i]},");
+        if (i < array.Length - 1) Console.Write($"{array[i]},");
         else Console.Write($"{array[i]}");
     }
     Console.WriteLine("]");
@@ -50,8 +54,9 @@ int CountEvenNumber(int[] array)
     int result = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i]%2==0) result ++;        
+        if (array[i] % 2 == 0) result++;
     }
+
     return result;
 }
 

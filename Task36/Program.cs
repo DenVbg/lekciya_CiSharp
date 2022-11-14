@@ -4,30 +4,48 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
-int sizeDigit = 8; // количество элементов массива
+Console.WriteLine("Найти сумму элементов, стоящих на нечётных позициях в массиве.");
+Console.Write0("Введите количество элементов массива : ");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите минимальный элемент массива : ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимальный элемент массива : ");
+int max = Convert.ToInt32(Console.ReadLine());
 
-int[] SizeArray(int size)
+int[] CreateArrayRndInt(int size, int min, int max)
 {
-    int[] array = new int[size]; //
+    int[] array = new int[size];
     Random rnd = new Random();
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < size; i++)
     {
-        array[i] = rnd.Next(1, 100);
+        array[i] = rnd.Next(min, max);
     }
     return array;
 }
 
 void PrintArray(int[] array)
-{   
+{
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array[i]);
-        if (i<array.Length-1) Console.Write(", ");
+        if(i < array.Length - 1) Console.Write($"{array[i]},");
+        else Console.Write($"{array[i]}");
     }
-    Console.Write("]");
+    Console.WriteLine("]");
 }
 
-int[] sizeArray = SizeArray(sizeDigit);
-Console.WriteLine("Вывод массива из 8 элементов заполненный псевдослучайными числами : ");
-PrintArray(sizeArray);
+int SumElements(int[] array)
+{
+    int sumElem = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i%2!=0) sumElem +=array[i];        
+    }
+    return sumElem;
+}
+
+int[] arr = CreateArrayRndInt(size, min, max);
+Console.WriteLine("Наш массив");
+PrintArray(arr);
+int sumElements = SumElements(arr);
+Console.WriteLine($"Cумма элементов, стоящих на нечётных позициях в массиве => {sumElements} ");

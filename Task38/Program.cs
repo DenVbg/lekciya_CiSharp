@@ -10,17 +10,19 @@ int size = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите минимальный и максимальный элемент массива. ");
 Console.Write("Минимальное положительный число : ");
 int min = Convert.ToInt32(Console.ReadLine());
-while(min<0){
+while (min < 0)
+{
     Console.Write("Вы ввели не положительное число. Повторите ввод : ");
     min = Convert.ToInt32(Console.ReadLine());
-    if (min<0) break;  
+    if (min < 0) break;
 }
-Console.Write("Максимальное трехзначное положительное число : ");
+Console.Write("Максимальное положительное число : ");
 int max = Convert.ToInt32(Console.ReadLine());
-while(max<0 && min<min){
+while (max < 0 && min < max)
+{
     Console.WriteLine("Вы ввели не положительное число. Или число равно минимальному. Повторите ввод : ");
     max = Convert.ToInt32(Console.ReadLine());
-    if (max<0 && min<min) break;  
+    if (max < 0 && min < max) break;
 }
 
 int[] CreateArrayRndInt(int size, int min, int max)
@@ -39,7 +41,7 @@ void PrintArray(int[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if(i < array.Length - 1) Console.Write($"{array[i]},");
+        if (i < array.Length - 1) Console.Write($"{array[i]},");
         else Console.Write($"{array[i]}");
     }
     Console.WriteLine("]");
@@ -52,8 +54,8 @@ int MarginMinMaxElements(int[] array)
     int maxElem = array[0];
     for (int i = 1; i < array.Length; i++)
     {
-        if (minElem<array[i]) minElem = array[i];   
-        if (maxElem>array[i]) maxElem = array[i]; 
+        if (minElem > array[i]) minElem = array[i];
+        if (maxElem < array[i]) maxElem = array[i];
         marginElem = maxElem - minElem;
     }
     return marginElem;

@@ -13,12 +13,11 @@ int num3 = Convert.ToInt32(Console.ReadLine());
 
 bool CheckTriangle(int a, int b, int c )
 {
-    return a<b+c && b<a+c && c<a+c; 
+    return a<b+c && b<a+c && c<a+b; 
 }
 
-
 bool triangle = CheckTriangle(num1, num2, num3);
-if (triangle) Console.Write("Не может");
-else Console.Write("Может");
+Console.Write(triangle? "Может": "Не может");
+
 
 

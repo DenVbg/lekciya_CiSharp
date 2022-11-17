@@ -40,6 +40,22 @@ int ConvertToBin(int num)
         num /= 2;
     }
     return result;
+// int ConvertToBin(int num10)
+// {
+//     int num2 = default;
+
+//     while (num10 > 0)
+//     {
+//         num2 += num10 % 2;
+//         num2 *= 10;
+//         num10 /= 2;
+//         ConvertToBin(num10);
+//     }
+
+//     return num2;
+// }
+
+
 }
 
 int RevertNumber(int par)
@@ -56,3 +72,15 @@ int RevertNumber(int par)
 }
 
 Console.WriteLine(RevertNumber(ConvertToBin(number)));
+
+// Другое решение
+// int d10 = 1;
+//             int result = 0;
+//             int number = 46;
+//             while (number != 0)
+//             {
+//                 result = result + number % 2 * d10;
+//                 number = number / 2;
+//                 d10 = d10 * 10;
+//             }
+//             Console.WriteLine($"{result}");

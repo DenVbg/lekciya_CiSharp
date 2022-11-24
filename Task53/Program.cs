@@ -36,7 +36,7 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-int[,] ReplaceElemntsMatrix(int[,] matrix)
+int[,] ReplaceElementsMatrix(int[,] matrix)
 {
     int temp = default;
     for (int i = 0; i < matrix.GetLength(1); i++)

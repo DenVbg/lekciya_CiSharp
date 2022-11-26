@@ -27,5 +27,5 @@ void NaturalNumbers(int num) //5
     }
 }
 
-NaturalNumbers(number)
+NaturalNumbers(number);
 

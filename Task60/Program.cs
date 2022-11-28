@@ -16,14 +16,32 @@ int z = Convert.ToInt32(Console.ReadLine());
 int[,,] CreateMatrix3dRndInt(int rows, int columns, int slices, int min, int max)
 {
     int[,,] matrix = new int[rows, columns, slices];
+    int count = rows*columns*slices;
+    int[] array = new int[count];
+    int value = default;
     Random rnd = new Random();
+    //count = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {    
             for (int k = 0; k < matrix.GetLength(2); k++)
             {
-                matrix[i, j, k] = rnd.Next(min, max + 1);
+                value = rnd.Next(min, max + 1);
+                for (int m = 0; m < count; m++)
+                {
+                   if (value == array[m]) 
+                    {
+                        value = rnd.Next(min, max + 1); 
+                        m = 0;
+                    } 
+                    else if (array[m] == 0) 
+                    {   
+                        array[m] = value;
+                        break;
+                    }
+                }
+                matrix[i, j, k] = value;
             }
         }
     }
@@ -56,16 +74,21 @@ void PrintElemXYZMatrix3D(int[,,] matrix)
         {        
             for (int k = 0; k < matrix.GetLength(1); k++)
             {
-                Console.Write($"{matrix[i, j, k], 5}({i},{j},{k})");
+                Console.Write($"{matrix[i, j, k], 4}({i},{j},{k})");
             }
         }
         Console.WriteLine();
     }
 }
  
-int[,,] newMatrixRndInt3d = CreateMatrix3dRndInt(x, y, z, 1, 5);
-Console.WriteLine("3х мерная матрица заполненная случайными целыми числами");
-PrintMatrix3d(newMatrixRndInt3d);
-
-Console.WriteLine("3х мерная матрица и индексы каждого элемента");
-PrintElemXYZMatrix3D(newMatrixRndInt3d);
+if (x*y*z > 90) Console.WriteLine("В матрице, c такими значениями, невозможно выполнить условие 'неповторяющиеся двузначные числа'");
+else
+{
+    int[,,] newMatrixRndInt3d = CreateMatrix3dRndInt(x, y, z, 10, 99);
+    Console.WriteLine();
+    Console.WriteLine("Трёхмерный массив из неповторяющихся двузначных чисел");
+    PrintMatrix3d(newMatrixRndInt3d);
+    Console.WriteLine();
+    Console.WriteLine("Значение и индексы каждого элемента");
+    PrintElemXYZMatrix3D(newMatrixRndInt3d);
+}

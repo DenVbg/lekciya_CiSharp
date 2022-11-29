@@ -15,15 +15,23 @@
 
 // NaturalNumbers(number);
 
-Console.WriteLine("Введите натуральное число: ");
+Console.Write("Введите натуральное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
 void NaturalNumbers(int num) //5
 {
-    if (num > 0)
+// вариант 1    
+    // if (num == 0) return;
+    //  // Console.Write($"{num} "); // 5 4 3 2 1 
+    // NaturalNumbers(num - 1);
+    // Console.Write($"{num} "); // 1 2 3 4 5 
+
+// вариант 2
+    if (num > 0) 
     {
+        // Console.Write($"{num} "); // 5 4 3 2 1 
         NaturalNumbers(num - 1);
-        Console.Write($"{num} ");
+        Console.Write($"{num} "); // 1 2 3 4 5
     }
 }
 

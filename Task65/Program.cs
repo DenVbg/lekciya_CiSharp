@@ -3,18 +3,27 @@
 // M = 1; N = 5 -> "1, 2, 3, 4, 5"
 // M = 4; N = 8 -> "4, 6, 7, 8"
 
-Console.Write("Введите натуральное число M:");
+Console.Write("Введите натуральное число M: ");
 int numM = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите натуральное число N:");
+Console.Write("Введите натуральное число N: ");
 int numN = Convert.ToInt32(Console.ReadLine());
 
+void NaturalNumbers(int numM, int numN)
+{
+    if (numM == numN) Console.Write($"{numM} ");
 
-void NaturalNumbers(int numN, int numM)
-{          
-        if (numN==numM) Console.Write($"{numN} ");  
-        if (numN>numM) NaturalNumbers(numN-1, numM);
-        else if (numN<numM) NaturalNumbers(numN+1, numM);
-        Console.Write($"{numN} ");   
+    if (numM < numN)
+    {
+        Console.Write($"{numM} ");
+        NaturalNumbers(numM + 1, numN);
+    }
+
+    if (numM > numN)
+    {
+        Console.Write($"{numM} ");
+        NaturalNumbers(numM - 1, numN);
+
+    }
 }
 
-NaturalNumbers(numN, numM);
+NaturalNumbers(numM, numN);
